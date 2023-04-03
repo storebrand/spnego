@@ -1,0 +1,28 @@
+name: Build and archive library
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Build and test
+        run: ./gradlew build
+      
+      - name: Archive artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: build/libs
