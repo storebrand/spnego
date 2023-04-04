@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: build/libs
+          path: build/libs/spnego-jakartaee-0.10.0.jar
